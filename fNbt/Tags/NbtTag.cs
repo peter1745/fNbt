@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Globalization;
 using System.Text;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> Base class for different kinds of named binary tags. </summary>
     public abstract class NbtTag : ICloneable {
         /// <summary> Parent compound tag, either NbtList or NbtCompound, if any.
         /// May be <c>null</c> for detached tags. </summary>
-        [CanBeNull]
         public NbtTag Parent { get; internal set; }
 
         /// <summary> Type of this tag. </summary>
@@ -34,7 +32,6 @@ namespace fNbt {
         /// <exception cref="ArgumentNullException"> If <paramref name="value"/> is <c>null</c>, and <c>Parent</c> tag is an NbtCompound.
         /// Name of tags inside an <c>NbtCompound</c> may not be null. </exception>
         /// <exception cref="ArgumentException"> If this tag resides in an <c>NbtCompound</c>, and a sibling tag with the name already exists. </exception>
-        [CanBeNull]
         public string Name {
             get { return name; }
             set {
@@ -61,7 +58,6 @@ namespace fNbt {
 
         /// <summary> Gets the full name of this tag, including all parent tag names, separated by dots. 
         /// Unnamed tags show up as empty strings. </summary>
-        [NotNull]
         public string Path {
             get {
                 if (Parent == null) {
@@ -76,14 +72,14 @@ namespace fNbt {
             }
         }
 
-        internal abstract bool ReadTag([NotNull] NbtBinaryReader readStream);
+        internal abstract bool ReadTag(NbtBinaryReader readStream);
 
-        internal abstract void SkipTag([NotNull] NbtBinaryReader readStream);
+        internal abstract void SkipTag(NbtBinaryReader readStream);
 
-        internal abstract void WriteTag([NotNull] NbtBinaryWriter writeReader);
+        internal abstract void WriteTag(NbtBinaryWriter writeReader);
 
         // WriteData does not write the tag's ID byte or the name
-        internal abstract void WriteData([NotNull] NbtBinaryWriter writeReader);
+        internal abstract void WriteData(NbtBinaryWriter writeReader);
 
 
         #region Shortcuts
@@ -289,7 +285,6 @@ namespace fNbt {
         /// <param name="type"> NbtTagType to name. </param>
         /// <returns> String representing the canonical name of a tag,
         /// or null of given TagType does not have a canonical name (e.g. Unknown). </returns>
-        [CanBeNull]
         public static string GetCanonicalTagName(NbtTagType type) {
             switch (type) {
                 case NbtTagType.Byte:
@@ -340,8 +335,7 @@ namespace fNbt {
         /// <param name="indentString"> String to be used for indentation. </param>
         /// <returns> A string representing contents of this tag, and all child tags (if any). </returns>
         /// <exception cref="ArgumentNullException"> <paramref name="indentString"/> is <c>null</c>. </exception>
-        [NotNull]
-        public string ToString([NotNull] string indentString) {
+        public string ToString(string indentString) {
             if (indentString == null) throw new ArgumentNullException("indentString");
             var sb = new StringBuilder();
             PrettyPrint(sb, indentString, 0);
@@ -349,11 +343,10 @@ namespace fNbt {
         }
 
 
-        internal abstract void PrettyPrint([NotNull] StringBuilder sb, [NotNull] string indentString, int indentLevel);
+        internal abstract void PrettyPrint(StringBuilder sb, string indentString, int indentLevel);
 
         /// <summary> String to use for indentation in NbtTag's and NbtFile's ToString() methods by default. </summary>
         /// <exception cref="ArgumentNullException"> <paramref name="value"/> is <c>null</c>. </exception>
-        [NotNull]
         public static string DefaultIndentString {
             get { return defaultIndentString; }
             set {

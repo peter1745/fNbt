@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> A tag containing a single signed 64-bit integer. </summary>
@@ -42,7 +41,7 @@ namespace fNbt {
         /// <summary> Creates a copy of given NbtLong tag. </summary>
         /// <param name="other"> Tag to copy. May not be <c>null</c>. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="other"/> is <c>null</c>. </exception>
-        public NbtLong([NotNull] NbtLong other) {
+        public NbtLong(NbtLong other) {
             if (other == null) throw new ArgumentNullException("other");
             name = other.name;
             Value = other.Value;

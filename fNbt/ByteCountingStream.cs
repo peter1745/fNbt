@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.IO;
-using JetBrains.Annotations;
 
 namespace fNbt {
     // Class used to count bytes read-from/written-to non-seekable streams.
@@ -14,7 +13,7 @@ namespace fNbt {
         bool readingManyBytes, writingManyBytes;
 
 
-        public ByteCountingStream([NotNull] Stream stream) {
+        public ByteCountingStream(Stream stream) {
             Debug.Assert(stream != null);
             baseStream = stream;
         }

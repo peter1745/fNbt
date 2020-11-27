@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:wip" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a2fca7b6-4133-43ec-98d6-a0487be20039" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/fNbt.Test/PartialReadStream.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt.Test/PartialReadStream.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt.sln.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/ByteCountingStream.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/ByteCountingStream.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/InvalidReaderStateException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/InvalidReaderStateException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/JetBrains.Annotations.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/NbtBinaryReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/NbtBinaryReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/NbtBinaryWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/NbtBinaryWriter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/NbtFile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/NbtFile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/NbtFormatException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/NbtFormatException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/NbtReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/NbtReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/NbtWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/NbtWriter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/TagSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/TagSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtByte.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtByte.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtByteArray.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtByteArray.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtCompound.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtCompound.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtDouble.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtDouble.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtFloat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtFloat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtInt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtInt.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtIntArray.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtIntArray.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtLong.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtLong.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtShort.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtShort.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtString.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtString.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/Tags/NbtTag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/Tags/NbtTag.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/ZLibStream.cs" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/ZLibStream.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fNbt/fNbt.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/fNbt/fNbt.csproj" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/fNbt/ByteCountingStream.cs" />
+        <option value="$PROJECT_DIR$/fNbt/InvalidReaderStateException.cs" />
+        <option value="$PROJECT_DIR$/fNbt/NbtBinaryReader.cs" />
+        <option value="$PROJECT_DIR$/fNbt/NbtBinaryWriter.cs" />
+        <option value="$PROJECT_DIR$/fNbt/NbtFile.cs" />
+        <option value="$PROJECT_DIR$/fNbt/NbtFormatException.cs" />
+        <option value="$PROJECT_DIR$/fNbt/NbtReader.cs" />
+        <option value="$PROJECT_DIR$/fNbt/NbtWriter.cs" />
+        <option value="$PROJECT_DIR$/fNbt/TagSelector.cs" />
+        <option value="$PROJECT_DIR$/fNbt/ZLibStream.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtByte.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtByteArray.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtCompound.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtDouble.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtFloat.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtInt.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtIntArray.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtList.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtLong.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtShort.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtString.cs" />
+        <option value="$PROJECT_DIR$/fNbt/Tags/NbtTag.cs" />
+        <option value="$PROJECT_DIR$/fNbt.Test/PartialReadStream.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kprcH3FIkkYOtWHoqBovvMKg0X" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a2fca7b6-4133-43ec-98d6-a0487be20039" name="Default Changelist" comment="" />
+      <created>1606408455568</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606408455568</updated>
+      <workItem from="1606408459802" duration="3896000" />
+    </task>
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> An efficient writer for writing NBT data directly to streams.
@@ -26,7 +25,7 @@ namespace fNbt {
         /// <remarks> Assumes that data in the stream should be Big-Endian encoded. </remarks>
         /// <exception cref="ArgumentNullException"> <paramref name="stream"/> or <paramref name="rootTagName"/> is <c>null</c>. </exception>
         /// <exception cref="ArgumentException"> <paramref name="stream"/> is not writable. </exception>
-        public NbtWriter([NotNull] Stream stream, [NotNull] String rootTagName)
+        public NbtWriter(Stream stream, String rootTagName)
             : this(stream, rootTagName, true) {}
 
 
@@ -36,7 +35,7 @@ namespace fNbt {
         /// <param name="bigEndian"> Whether NBT data should be in Big-Endian encoding. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="stream"/> or <paramref name="rootTagName"/> is <c>null</c>. </exception>
         /// <exception cref="ArgumentException"> <paramref name="stream"/> is not writable. </exception>
-        public NbtWriter([NotNull] Stream stream, [NotNull] String rootTagName, bool bigEndian) {
+        public NbtWriter(Stream stream, String rootTagName, bool bigEndian) {
             if (rootTagName == null) throw new ArgumentNullException("rootTagName");
             writer = new NbtBinaryWriter(stream, bigEndian);
             writer.Write((byte)NbtTagType.Compound);
@@ -50,7 +49,6 @@ namespace fNbt {
         public bool IsDone { get; private set; }
 
         /// <summary> Gets the underlying stream of the NbtWriter. </summary>
-        [NotNull]
         public Stream BaseStream {
             get { return writer.BaseStream; }
         }
@@ -72,7 +70,7 @@ namespace fNbt {
         /// <param name="tagName"> Name to give to this compound tag. May not be null. </param>
         /// <exception cref="NbtFormatException"> No more tags can be written -OR-
         /// an unnamed compound tag was expected -OR- a tag of a different type was expected. </exception>
-        public void BeginCompound([NotNull] String tagName) {
+        public void BeginCompound(String tagName) {
             EnforceConstraints(tagName, NbtTagType.Compound);
             GoDown(NbtTagType.Compound);
 
@@ -125,7 +123,7 @@ namespace fNbt {
         /// an unnamed list tag was expected -OR- a tag of a different type was expected. </exception>
         /// <exception cref="ArgumentOutOfRangeException"> <paramref name="size"/> is negative -OR-
         /// <paramref name="elementType"/> is not a valid NbtTagType. </exception>
-        public void BeginList([NotNull] String tagName, NbtTagType elementType, int size) {
+        public void BeginList(String tagName, NbtTagType elementType, int size) {
             if (size < 0) {
                 throw new ArgumentOutOfRangeException("size", "List size may not be negative.");
             }
@@ -178,7 +176,7 @@ namespace fNbt {
         /// <param name="value"> The unsigned byte to write. </param>
         /// <exception cref="NbtFormatException"> No more tags can be written -OR-
         /// an unnamed byte tag was expected -OR- a tag of a different type was expected. </exception>
-        public void WriteByte([NotNull] String tagName, byte value) {
+        public void WriteByte(String tagName, byte value) {
             EnforceConstraints(tagName, NbtTagType.Byte);
             writer.Write((byte)NbtTagType.Byte);
             writer.Write(tagName);
@@ -202,7 +200,7 @@ namespace fNbt {
         /// <param name="value"> The unsigned byte to write. </param>
         /// <exception cref="NbtFormatException"> No more tags can be written -OR-
         /// an unnamed byte tag was expected -OR- a tag of a different type was expected. </exception>
-        public void WriteDouble([NotNull] String tagName, double value) {
+        public void WriteDouble(String tagName, double value) {
             EnforceConstraints(tagName, NbtTagType.Double);
             writer.Write((byte)NbtTagType.Double);
             writer.Write(tagName);
@@ -226,7 +224,7 @@ namespace fNbt {
         /// <param name="value"> The four-byte floating-point value to write. </param>
         /// <exception cref="NbtFormatException"> No more tags can be written -OR-
         /// an unnamed float tag was expected -OR- a tag of a different type was expected. </exception>
-        public void WriteFloat([NotNull] String tagName, float value) {
+        public void WriteFloat(String tagName, float value) {
             EnforceConstraints(tagName, NbtTagType.Float);
             writer.Write((byte)NbtTagType.Float);
             writer.Write(tagName);
@@ -250,7 +248,7 @@ namespace fNbt {
         /// <param name="value"> The four-byte signed integer to write. </param>
         /// <exception cref="NbtFormatException"> No more tags can be written -OR-
         /// an unnamed int tag was expected -OR- a tag of a different type was expected. </exception>
-        public void WriteInt([NotNull] String tagName, int value) {
+        public void WriteInt(String tagName, int value) {
             EnforceConstraints(tagName, NbtTagType.Int);
             writer.Write((byte)NbtTagType.Int);
             writer.Write(tagName);
@@ -274,7 +272,7 @@ namespace fNbt {
         /// <param name="value"> The eight-byte signed integer to write. </param>
         /// <exception cref="NbtFormatException"> No more tags can be written -OR-
         /// an unnamed long tag was expected -OR- a tag of a different type was expected. </exception>
-        public void WriteLong([NotNull] String tagName, long value) {
+        public void WriteLong(String tagName, long value) {
             EnforceConstraints(tagName, NbtTagType.Long);
             writer.Write((byte)NbtTagType.Long);
             writer.Write(tagName);
@@ -298,7 +296,7 @@ namespace fNbt {
         /// <param name="value"> The two-byte signed integer to write. </param>
         /// <exception cref="NbtFormatException"> No more tags can be written -OR-
         /// an unnamed short tag was expected -OR- a tag of a different type was expected. </exception>
-        public void WriteShort([NotNull] String tagName, short value) {
+        public void WriteShort(String tagName, short value) {
             EnforceConstraints(tagName, NbtTagType.Short);
             writer.Write((byte)NbtTagType.Short);
             writer.Write(tagName);
@@ -311,7 +309,7 @@ namespace fNbt {
         /// <exception cref="NbtFormatException"> No more tags can be written -OR-
         /// a named string tag was expected -OR- a tag of a different type was expected -OR-
         /// the size of a parent list has been exceeded. </exception>
-        public void WriteString([NotNull] String value) {
+        public void WriteString(String value) {
             if (value == null) throw new ArgumentNullException("value");
             EnforceConstraints(null, NbtTagType.String);
             writer.Write(value);
@@ -323,7 +321,7 @@ namespace fNbt {
         /// <param name="value"> The string to write. </param>
         /// <exception cref="NbtFormatException"> No more tags can be written -OR-
         /// an unnamed string tag was expected -OR- a tag of a different type was expected. </exception>
-        public void WriteString([NotNull] String tagName, [NotNull] String value) {
+        public void WriteString(String tagName, String value) {
             if (value == null) throw new ArgumentNullException("value");
             EnforceConstraints(tagName, NbtTagType.String);
             writer.Write((byte)NbtTagType.String);
@@ -342,7 +340,7 @@ namespace fNbt {
         /// a named byte array tag was expected -OR- a tag of a different type was expected -OR-
         /// the size of a parent list has been exceeded. </exception>
         /// <exception cref="ArgumentNullException"> <paramref name="data"/> is null </exception>
-        public void WriteByteArray([NotNull] byte[] data) {
+        public void WriteByteArray(byte[] data) {
             if (data == null) throw new ArgumentNullException("data");
             WriteByteArray(data, 0, data.Length);
         }
@@ -360,7 +358,7 @@ namespace fNbt {
         /// <exception cref="ArgumentNullException"> <paramref name="data"/> is null </exception>
         /// <exception cref="ArgumentException"> <paramref name="count"/> is greater than
         /// <paramref name="offset"/> subtracted from the array length. </exception>
-        public void WriteByteArray([NotNull] byte[] data, int offset, int count) {
+        public void WriteByteArray(byte[] data, int offset, int count) {
             CheckArray(data, offset, count);
             EnforceConstraints(null, NbtTagType.ByteArray);
             writer.Write(count);
@@ -375,7 +373,7 @@ namespace fNbt {
         /// an unnamed byte array tag was expected -OR- a tag of a different type was expected. </exception>
         /// <exception cref="ArgumentNullException"> <paramref name="tagName"/> or
         /// <paramref name="data"/> is null </exception>
-        public void WriteByteArray([NotNull] String tagName, [NotNull] byte[] data) {
+        public void WriteByteArray(String tagName, byte[] data) {
             if (data == null) throw new ArgumentNullException("data");
             WriteByteArray(tagName, data, 0, data.Length);
         }
@@ -394,7 +392,7 @@ namespace fNbt {
         /// <paramref name="data"/> is null </exception>
         /// <exception cref="ArgumentException"> <paramref name="count"/> is greater than
         /// <paramref name="offset"/> subtracted from the array length. </exception>
-        public void WriteByteArray([NotNull] String tagName, [NotNull] byte[] data, int offset, int count) {
+        public void WriteByteArray(String tagName, byte[] data, int offset, int count) {
             CheckArray(data, offset, count);
             EnforceConstraints(tagName, NbtTagType.ByteArray);
             writer.Write((byte)NbtTagType.ByteArray);
@@ -415,7 +413,7 @@ namespace fNbt {
         /// <exception cref="ArgumentOutOfRangeException"> <paramref name="count"/> is negative. </exception>
         /// <exception cref="ArgumentNullException"> <paramref name="dataSource"/> is null. </exception>
         /// <exception cref="ArgumentException"> Given stream does not support reading. </exception>
-        public void WriteByteArray([NotNull] Stream dataSource, int count) {
+        public void WriteByteArray(Stream dataSource, int count) {
             if (dataSource == null) throw new ArgumentNullException("dataSource");
             if (!dataSource.CanRead) {
                 throw new ArgumentException("Given stream does not support reading.", "dataSource");
@@ -439,7 +437,7 @@ namespace fNbt {
         /// <exception cref="ArgumentNullException"> <paramref name="dataSource"/> is null. </exception>
         /// <exception cref="ArgumentException"> Given stream does not support reading -OR-
         /// <paramref name="buffer"/> size is 0. </exception>
-        public void WriteByteArray([NotNull] Stream dataSource, int count, [NotNull] byte[] buffer) {
+        public void WriteByteArray(Stream dataSource, int count, byte[] buffer) {
             if (dataSource == null) throw new ArgumentNullException("dataSource");
             if (buffer == null) throw new ArgumentNullException("buffer");
             if (!dataSource.CanRead) {
@@ -465,7 +463,7 @@ namespace fNbt {
         /// <exception cref="ArgumentOutOfRangeException"> <paramref name="count"/> is negative. </exception>
         /// <exception cref="ArgumentNullException"> <paramref name="dataSource"/> is null. </exception>
         /// <exception cref="ArgumentException"> Given stream does not support reading. </exception>
-        public void WriteByteArray([NotNull] String tagName, [NotNull] Stream dataSource, int count) {
+        public void WriteByteArray(String tagName, Stream dataSource, int count) {
             if (dataSource == null) throw new ArgumentNullException("dataSource");
             if (count < 0) {
                 throw new ArgumentOutOfRangeException("count", "count may not be negative");
@@ -487,8 +485,8 @@ namespace fNbt {
         /// <exception cref="ArgumentNullException"> <paramref name="dataSource"/> is null. </exception>
         /// <exception cref="ArgumentException"> Given stream does not support reading -OR-
         /// <paramref name="buffer"/> size is 0. </exception>
-        public void WriteByteArray([NotNull] String tagName, [NotNull] Stream dataSource, int count,
-                                   [NotNull] byte[] buffer) {
+        public void WriteByteArray(String tagName, Stream dataSource, int count,
+                                   byte[] buffer) {
             if (dataSource == null) throw new ArgumentNullException("dataSource");
             if (buffer == null) throw new ArgumentNullException("buffer");
             if (!dataSource.CanRead) {
@@ -511,7 +509,7 @@ namespace fNbt {
         /// a named int array tag was expected -OR- a tag of a different type was expected -OR-
         /// the size of a parent list has been exceeded. </exception>
         /// <exception cref="ArgumentNullException"> <paramref name="data"/> is null </exception>
-        public void WriteIntArray([NotNull] int[] data) {
+        public void WriteIntArray(int[] data) {
             if (data == null) throw new ArgumentNullException("data");
             WriteIntArray(data, 0, data.Length);
         }
@@ -529,7 +527,7 @@ namespace fNbt {
         /// <exception cref="ArgumentNullException"> <paramref name="data"/> is null </exception>
         /// <exception cref="ArgumentException"> <paramref name="count"/> is greater than
         /// <paramref name="offset"/> subtracted from the array length. </exception>
-        public void WriteIntArray([NotNull] int[] data, int offset, int count) {
+        public void WriteIntArray(int[] data, int offset, int count) {
             CheckArray(data, offset, count);
             EnforceConstraints(null, NbtTagType.IntArray);
             writer.Write(count);
@@ -546,7 +544,7 @@ namespace fNbt {
         /// an unnamed int array tag was expected -OR- a tag of a different type was expected. </exception>
         /// <exception cref="ArgumentNullException"> <paramref name="tagName"/> or
         /// <paramref name="data"/> is null </exception>
-        public void WriteIntArray([NotNull] String tagName, [NotNull] int[] data) {
+        public void WriteIntArray(String tagName, int[] data) {
             if (data == null) throw new ArgumentNullException("data");
             WriteIntArray(tagName, data, 0, data.Length);
         }
@@ -565,7 +563,7 @@ namespace fNbt {
         /// <paramref name="data"/> is null </exception>
         /// <exception cref="ArgumentException"> <paramref name="count"/> is greater than
         /// <paramref name="offset"/> subtracted from the array length. </exception>
-        public void WriteIntArray([NotNull] String tagName, [NotNull] int[] data, int offset, int count) {
+        public void WriteIntArray(String tagName, int[] data, int offset, int count) {
             CheckArray(data, offset, count);
             EnforceConstraints(tagName, NbtTagType.IntArray);
             writer.Write((byte)NbtTagType.IntArray);
@@ -585,7 +583,7 @@ namespace fNbt {
         /// <param name="tag"> Tag to write. Must not be null. </param>
         /// <exception cref="NbtFormatException"> No more tags can be written -OR- given tag is unacceptable at this time. </exception>
         /// <exception cref="ArgumentNullException"> <paramref name="tag"/> is null </exception>
-        public void WriteTag([NotNull] NbtTag tag) {
+        public void WriteTag(NbtTag tag) {
             if (tag == null) throw new ArgumentNullException("tag");
             EnforceConstraints(tag.Name, tag.TagType);
             if (tag.Name != null) {
@@ -639,7 +637,7 @@ namespace fNbt {
         }
 
 
-        void EnforceConstraints([CanBeNull] String name, NbtTagType desiredType) {
+        void EnforceConstraints(String name, NbtTagType desiredType) {
             if (IsDone) {
                 throw new NbtFormatException("Cannot write any more tags: root tag has been closed.");
             }
@@ -659,7 +657,7 @@ namespace fNbt {
         }
 
 
-        static void CheckArray([NotNull] Array data, int offset, int count) {
+        static void CheckArray(Array data, int offset, int count) {
             if (data == null) {
                 throw new ArgumentNullException("data");
             } else if (offset < 0) {
@@ -672,7 +670,7 @@ namespace fNbt {
         }
 
 
-        void WriteByteArrayFromStreamImpl([NotNull] Stream dataSource, int count, [NotNull] byte[] buffer) {
+        void WriteByteArrayFromStreamImpl(Stream dataSource, int count, byte[] buffer) {
             Debug.Assert(dataSource != null);
             Debug.Assert(buffer != null);
             writer.Write(count);

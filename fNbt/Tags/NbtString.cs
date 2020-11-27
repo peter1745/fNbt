@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> A tag containing a single string. String is stored in UTF-8 encoding. </summary>
@@ -11,7 +10,6 @@ namespace fNbt {
         }
 
         /// <summary> Value/payload of this tag (a single string). May not be <c>null</c>. </summary>
-        [NotNull]
         public string Value {
             get { return stringVal; }
             set {
@@ -22,7 +20,6 @@ namespace fNbt {
             }
         }
 
-        [NotNull]
         string stringVal = "";
 
 
@@ -33,7 +30,7 @@ namespace fNbt {
         /// <summary> Creates an unnamed NbtString tag with the given value. </summary>
         /// <param name="value"> String value to assign to this tag. May not be <c>null</c>. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="value"/> is <c>null</c>. </exception>
-        public NbtString([NotNull] string value)
+        public NbtString(string value)
             : this(null, value) {}
 
 
@@ -41,7 +38,7 @@ namespace fNbt {
         /// <param name="tagName"> Name to assign to this tag. May be <c>null</c>. </param>
         /// <param name="value"> String value to assign to this tag. May not be <c>null</c>. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="value"/> is <c>null</c>. </exception>
-        public NbtString([CanBeNull] string tagName, [NotNull] string value) {
+        public NbtString(string tagName, string value) {
             if (value == null) throw new ArgumentNullException("value");
             name = tagName;
             Value = value;
@@ -51,7 +48,7 @@ namespace fNbt {
         /// <summary> Creates a copy of given NbtString tag. </summary>
         /// <param name="other"> Tag to copy. May not be <c>null</c>. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="other"/> is <c>null</c>. </exception>
-        public NbtString([NotNull] NbtString other) {
+        public NbtString(NbtString other) {
             if (other == null) throw new ArgumentNullException("other");
             name = other.name;
             Value = other.Value;

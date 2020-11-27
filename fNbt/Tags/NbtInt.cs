@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> A tag containing a single signed 32-bit integer. </summary>
@@ -26,14 +25,14 @@ namespace fNbt {
 
         /// <summary> Creates an NbtInt tag with the given name and the default value of 0. </summary>
         /// <param name="tagName"> Name to assign to this tag. May be <c>null</c>. </param>
-        public NbtInt([CanBeNull] string tagName)
+        public NbtInt(string tagName)
             : this(tagName, 0) {}
 
 
         /// <summary> Creates an NbtInt tag with the given name and value. </summary>
         /// <param name="tagName"> Name to assign to this tag. May be <c>null</c>. </param>
         /// <param name="value"> Value to assign to this tag. </param>
-        public NbtInt([CanBeNull] string tagName, int value) {
+        public NbtInt(string tagName, int value) {
             name = tagName;
             Value = value;
         }
@@ -42,7 +41,7 @@ namespace fNbt {
         /// <summary> Creates a copy of given NbtInt tag. </summary>
         /// <param name="other"> Tag to copy. May not be <c>null</c>. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="other"/> is <c>null</c>. </exception>
-        public NbtInt([NotNull] NbtInt other) {
+        public NbtInt(NbtInt other) {
             if (other == null) throw new ArgumentNullException("other");
             name = other.name;
             Value = other.Value;
